@@ -49,7 +49,7 @@ if ~isempty(varargin) > 0
     property_values = varargin{2:2:end};
     numargs = length(property_values);
     for k = 1:numargs
-        switch property_names(k)
+        switch string(property_names(k))
             case "pcb_name"
                if ischar(property_values(k)) 
                    substrate_length = property_values(k); 

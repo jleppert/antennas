@@ -1,9 +1,9 @@
-function build_antenna_gerber(antenna_pcb,filename,varargin)
+function writer = build_gerber(pcb,filename,varargin)
 %%  Builds the antenna gerber files from an antenna build model.
-%    :param antenna_pcb:  antenna model object (pcbStack)
+%    :param pcb:  rf PCB component (can be antenna) object (pcbStack)
 %    :filename: of the output zip file. No need to add .zip.
 %    :service (optional): the PCB service to use (matlab PCBServices obj)
-%    :connector (optiona;): the connector to use. Also matlab obj.
+%    :connector (optional;): the connector to use. Also matlab obj.
 
 % Created by:  Alan Wilson-Langman
 % Revision: 1.0
@@ -11,7 +11,7 @@ function build_antenna_gerber(antenna_pcb,filename,varargin)
 
 
 %Defaults
-service = PCBServices.PCBWayWriter;
+service = PCBServices.MayhewWriter;
 connector = [];
 
 
@@ -39,11 +39,12 @@ else
 end
 
 %Note that for this
-write = PCBWriter(antenna_pcb,service,connector);
-write.Soldermask='none';
-write.Solderpaste=0;
+writer = PCBWriter(pcb,service,connector);
+writer.Soldermask='none';
+writer.Solderpaste=0;
+writer.UseDefaultConnector=false;
 
-write.gerberWrite();
+writer.gerberWrite();
 
 
 
