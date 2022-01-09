@@ -1,4 +1,29 @@
 function pcb = build_jonas_antenna(varargin)
+%% Create a antenna model for simulation and manufacture for Jonas innitial antennas
+%   :param pcb_name:  the name of the design
+%   :param pcb_version: the version number for the antenna
+%   :param substrate_length: the length of the PCB
+%   :param substrate_width: the width of the PCB
+%   :param substrate_thickness: the thickness of the PCB substrate
+%   :param antenna_width: the width of the antenna conductor
+%   :param antenna_feed_gap: the gap between the antenna feed pads
+%   :param antenna_arm_spacingL: the spacing between the antenna arms
+%   :param pad_length: the length of the antenna pad
+%   :param pad_width: the width of the antenna pad
+%   :param slot_width: the width of the tuning slot
+%   :param slot_length: the length of the tuning slot
+%   :param build: if true, then build model for creating gerber files.
+%               : if false, then build a model for simulation.
+
+% Note the for simulation then two arms need to be electricall conneced to
+% feed the simulation feed model.
+
+% Created by:  Alan Wilson-Langman
+% Revision: 1.0
+% Copyright (c) 2022 Inspectobot.
+
+
+
 
 
 %Set defaults
